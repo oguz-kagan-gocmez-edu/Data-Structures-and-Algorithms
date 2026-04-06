@@ -3,9 +3,6 @@ package Array;
 import List.LinkedList;
 import List.Node;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Comparator;
 
 public class DisjointSet {
     private Set[] sets;
