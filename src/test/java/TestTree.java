@@ -271,6 +271,16 @@ public class TestTree {
     }
 
     @Test
+    public void testIsMirror() {
+        tree.insertArray(new int[] {1,2,3});
+        assertFalse(tree.getRoot().isMirror(tree.getRoot(), tree.getRoot()));
+        tree.insertArray(new int[] {1,2,1});
+        assertFalse(tree.getRoot().isMirror(tree.getRoot(), tree.getRoot()));
+        tree.insertArray(new int[] {4,2,6});
+        assertFalse(tree.getRoot().isMirror(tree.getRoot(), tree.getRoot()));
+    }
+
+    @Test
     public void testLeftist() {
         tree.insertArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
         assertEquals(0, tree.getRoot().leftist());
