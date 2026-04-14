@@ -6,7 +6,7 @@ We are committed to making this project a welcoming, respectful, and inclusive s
 
 We expect all contributors, participants, and community members to help create a positive environment where people can learn, share ideas, and collaborate safely and respectfully.
 
-## Our Standards
+## Our Standards 
 
 Examples of behavior that contributes to a positive environment include:
 
