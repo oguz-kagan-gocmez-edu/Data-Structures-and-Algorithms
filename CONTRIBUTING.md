@@ -6,7 +6,7 @@ This repository is a personal educational project focused on data structures, al
 
 ## How You Can Contribute
 
-You can contribute by:
+You can contribute by: 
 
 - reporting bugs or unexpected behavior
 - suggesting improvements to existing implementations
