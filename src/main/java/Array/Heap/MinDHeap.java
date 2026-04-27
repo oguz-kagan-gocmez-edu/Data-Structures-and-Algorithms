@@ -53,7 +53,27 @@ public class MinDHeap extends DHeap {
      * positions. Your method should run in ${\cal O}(\log N)$ time. You are not allowed to use any class method.
      */
     public int[] ascendants(int current){
-        return null;
+        if (current == 0) {
+            return new int[0];
+        }
+        else {
+            int[] upper = ascendants((current - 1) / d);
+            int[] result = new int[upper.length + 1];
+            for (int i = 0; i < upper.length ; i++) {
+                result[i] = upper[i];
+            }
+            result[result.length - 1] = (current - 1) / d;
+            return result;
+        }
+        // non-recursive solutıon as follows
+        /*if (current == 0) return new int[0];
+        int size = (int)(Math.log(current + d) / Math.log(this.d));
+        int[] result = new int[size];
+        for (int i = 0; i < size; i++) {
+            current = (current - 1) / this.d;
+            result[result.length - 1 - i] = current;
+        }
+        return result;*/
     }
 
     /**
@@ -61,7 +81,25 @@ public class MinDHeap extends DHeap {
      * the given value key.
      */
     public int numberOfPlacesToReplace(int key){
-        return 0;
+        int places = 0;
+        for (int i = 0; i < count; i++) {
+            boolean canBePlaced = true;
+            for (int j = 1; j <= d; j++) {
+                int subChild =  d * i + j;
+                if (subChild < count) {
+                    if (i == 0) {
+                        if (array[d * i + j].getData() < key) canBePlaced = false;
+                    } else {
+                        if (array[d * i + j].getData() < key) canBePlaced = false;
+                        if (array[(i - 1) / 2].getData() > key) canBePlaced = false;
+                    }
+                } else {
+                    if (array[(i - 1) / 2].getData() > key) canBePlaced = false;
+                }
+            }
+            if (canBePlaced) places++;
+        }
+        return places;
     }
 
     /**
@@ -71,6 +109,34 @@ public class MinDHeap extends DHeap {
      * $max$.
      */
     public int sumOfMaxChange(int min, int max){
-        return 0;
+        // i do not know about the test cases of this function.
+        int sum = 0;
+        for (int i = 0; i < count; i++) {
+            // lower bound
+            int lower;
+            if (i == 0) {
+                lower = min; // root
+            } else {
+                int parent = (i - 1) / d;
+                lower = array[parent].getData();
+            }
+            // upper bound
+            int upper = max; // assume leaf
+            boolean hasChild = false;
+            for (int j = 1; j <= d; j++) {
+                int childIndex = d * i + j;
+                if (childIndex < count) {
+                    hasChild = true;
+                    upper = Math.min(upper, array[childIndex].getData());
+                }
+            }
+            if (!hasChild) {
+                upper = max; // leaf node
+            }
+            if (upper > lower) {
+                sum += upper - lower;
+            }
+        }
+        return sum;
     }
 }
