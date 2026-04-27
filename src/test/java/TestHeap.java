@@ -232,6 +232,9 @@ public class TestHeap {
         heap.insertArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
         int[] items3 = new int[]{1, 3, 5};
         Assert.assertEquals(1.33333, heap.averagePercolateUp(items3), 0.0001);
+        heap = new MinHeap(20);
+        heap.insertArray(new int[]{10, 20, 15, 30, 27, 40});
+        
     }
 
 }
