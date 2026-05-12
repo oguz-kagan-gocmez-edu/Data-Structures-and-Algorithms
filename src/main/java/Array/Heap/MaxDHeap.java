@@ -122,7 +122,6 @@ public class MaxDHeap extends DHeap {
      * run in ${\cal O}(d^2)$ time.
      */
     public int third(){
-        int max = array[0].getData();
         int best2 = Integer.MIN_VALUE;
         int best3 = Integer.MIN_VALUE;
 
@@ -158,7 +157,7 @@ public class MaxDHeap extends DHeap {
         int start = (this.count - 2) / this.d + 1;
         int minimum = Math.min(this.array[start].getData(), this.array[start+1].getData());
         int secondMinimum = Math.max(this.array[start].getData(), this.array[start+1].getData());
-        
+
         for (int i = start + 2; i < count; i++) {
             if (array[i].getData() < minimum) {
                 secondMinimum = minimum;
@@ -166,9 +165,9 @@ public class MaxDHeap extends DHeap {
             } else if (array[i].getData() < secondMinimum && array[i].getData() != minimum) {
                 secondMinimum = array[i].getData();
             }
-            
+
         }
-        
+
         return secondMinimum;
     }
 }
