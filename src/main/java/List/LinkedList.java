@@ -777,4 +777,33 @@ public class LinkedList {
         return pells;
     }
 
+    /**
+     * Write a method which returns true if the singly linked list is decreasing first and then increasing after some
+     * item. This zig zag pattern should appear exactly one time.
+     */
+    public boolean isZigZagSingleLinked() {
+        Node current = head;
+        boolean hasDecreasingPart = false;
+        boolean hasIncreasingPart = false;
+        if (current.getData() < current.getNext().getData()) {
+            return false;
+        }
+        while (current.getNext() != null && current.getData() > current.getNext().getData()) {
+            hasDecreasingPart = true;
+            current = current.getNext();
+        }
+        if (current.getNext() == null) {
+            return false;
+        }
+        while (current.getNext() != null) {
+            if (current.getData() < current.getNext().getData()) {
+                hasIncreasingPart = true;
+                current = current.getNext();
+            } else {
+                return false;
+            }
+        }
+        return hasDecreasingPart && hasIncreasingPart;
+    }
+
 }

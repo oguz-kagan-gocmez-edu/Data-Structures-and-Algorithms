@@ -142,4 +142,13 @@ public class TestListHash {
         assertTrue(Hash.sumOfThreeK(new int[]{3,3,3}, 9));
     }
 
+    @Test
+    public void testMaxMapFour() {
+        hash1 = new Hash(7);
+        hash1.insertArray(new int[]{1, 8, 15, 22});
+        assertTrue(hash1.maxMapFour());
+        hash1.insert(29);
+        assertFalse(hash1.maxMapFour());
+    }
+
 }

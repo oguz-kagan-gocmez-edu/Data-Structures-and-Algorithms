@@ -170,4 +170,24 @@ public class TestArrayGraph {
         assertFalse(graph.isTwoGraph());
     }
 
+    @Test
+    public void testCountDiamonds(){
+        Graph graph = new Graph(4,
+                new int[][]{{0, 1}, {1, 0}, {0, 2}, {2, 0}, {0, 3}, {3, 0}, {1, 2}, {2, 1}, {1, 3}, {3, 1}});
+        assertEquals(1, graph.countDiamonds());
+        graph = new Graph(4,
+                new int[][]{{0, 1}, {1, 0}, {0, 2}, {2, 0}});
+        assertEquals(0, graph.countDiamonds());
+    }
+
+    @Test
+    public void testEvenEdgeGraph(){
+        Graph graph = new Graph(4,
+                new int[][]{{0, 1}, {1, 0}, {1, 2}, {2, 1}});
+        assertEquals(4, graph.evenEdgeGraph());
+        graph = new Graph(4,
+                new int[][]{{1, 3}, {3, 1}});
+        assertEquals(0, graph.evenEdgeGraph());
+    }
+
 }

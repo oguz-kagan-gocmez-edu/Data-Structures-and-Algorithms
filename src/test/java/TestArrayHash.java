@@ -113,4 +113,10 @@ public class TestArrayHash {
         assertTrue(Hash.equalPairDiffs(new int[]{1, 3, 5}));
     }
 
+    @Test
+    public void testEqualTripletMultiplication() {
+        assertTrue(Hash.equalTripletMultiplication(new int[]{1, 2, 3, 6, 4, 5}));
+        assertFalse(Hash.equalTripletMultiplication(new int[]{1, 2, 3, 5}));
+    }
+
 }

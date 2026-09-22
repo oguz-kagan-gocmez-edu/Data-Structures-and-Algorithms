@@ -82,4 +82,47 @@ public class QuickSort implements Sort{
      */
     public int[] minMaxRepeat(int[] A) {return new int[0];}
 
+    /**
+     * Suppose you are given an array of $N$ integers. Write a single pass algorithm that puts the numbers whose division
+     * by 4 remains 0 first, then the numbers which division remains 1, then the ones which remains 2, and lastly the
+     * ones which remains 3, similar to the partition algorithm in QuickSort. The array may contain negative numbers, so
+     * the remainder should be computed with {\bf Math.floorMod}. You may not use any additional data structure or array.
+     */
+    public void quickQuadruple(int[] A){
+        int zero = 0;
+        int one = 0;
+        int i = 0;
+        int three = A.length - 1;
+        while (i <= three) {
+            int r = Math.floorMod(A[i], 4);
+            if (r == 0) {
+                int temp = A[i];
+                A[i] = A[one];
+                A[one] = temp;
+                temp = A[one];
+                A[one] = A[zero];
+                A[zero] = temp;
+                zero++;
+                one++;
+                i++;
+            }
+            else if (r == 1) {
+                int temp = A[i];
+                A[i] = A[one];
+                A[one] = temp;
+                one++;
+                i++;
+            }
+            else if (r == 2) {
+                i++;
+            }
+            else {
+                int temp = A[i];
+                A[i] = A[three];
+                A[three] = temp;
+                three--;
+            }
+        }
+    }
+
 }

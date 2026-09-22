@@ -326,4 +326,55 @@ public class Graph extends AbstractGraph {
         return true;
     }
 
+    /**
+     Write the method in array~(adjacency matrix) implementation of Graph which returns the number of {\bf diamonds} in
+     the graph. A diamond is a group of four distinct vertices which are connected by exactly five of the six possible
+     edges among them. Every group of four vertices should be examined once. You are not allowed to use depth first
+     search or breadth first search.
+     */
+    public int countDiamonds(){
+        int count = 0;
+        for (int i = 0; i < edges.length - 3; i++) {
+            for (int j = i + 1; j < edges.length - 2; j++) {
+                for (int k = j + 1; k < edges.length - 1; k++) {
+                    for (int l = k + 1; l < edges.length; l++) {
+                        int edgeCount = 0;
+                        if (edges[i][j] != 0)
+                            edgeCount++;
+                        if (edges[i][k] != 0)
+                            edgeCount++;
+                        if (edges[i][l] != 0)
+                            edgeCount++;
+                        if (edges[j][k] != 0)
+                            edgeCount++;
+                        if (edges[j][l] != 0)
+                            edgeCount++;
+                        if (edges[k][l] != 0)
+                            edgeCount++;
+                        if (edgeCount == 5)
+                            count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+    /**
+     Write the method in array~(adjacency matrix) implementation of Graph which returns the number of even-valued edges,
+     where an edge is even-valued if at least one of its two distinct node values is even. You are not allowed to use
+     extra data structures.
+     */
+    public int evenEdgeGraph(){
+        int count = 0;
+        for (int i = 0; i < this.vertexCount; i++) {
+            for (int j = 0; j < this.vertexCount; j++) {
+                if (i != j && edges[i][j] != 0 && (i % 2 == 0 || j % 2 == 0)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
 }

@@ -672,4 +672,28 @@ public class TestLinkedList {
         assertEquals("", list.toString());
     }
 
+    @Test
+    public void testIsZigZagSingleLinked() {
+        list = new LinkedList();
+        list.insertArray(new int[]{9, 5, 2, 4, 7});
+        assertTrue(list.isZigZagSingleLinked());
+        list = new LinkedList();
+        list.insertArray(new int[]{1, 5, 2, 4, 7});
+        assertFalse(list.isZigZagSingleLinked());
+    }
+
+    @Test
+    public void testIntersectionDouble() {
+        DoublyLinkedList l1 = new DoublyLinkedList();
+        l1.insertArray(new int[]{2, 2, 2, 4, 5});
+        DoublyLinkedList l2 = new DoublyLinkedList();
+        l2.insertArray(new int[]{2, 2, 4, 4, 5});
+        assertEquals("2 2 4 5", DoublyLinkedList.intersection(l1, l2).toString());
+        l1 = new DoublyLinkedList();
+        l1.insertArray(new int[]{1, 3, 5});
+        l2 = new DoublyLinkedList();
+        l2.insertArray(new int[]{2, 4, 6});
+        assertEquals("", DoublyLinkedList.intersection(l1, l2).toString());
+    }
+
 }

@@ -145,4 +145,15 @@ public class TestListStack {
         assertEquals("6 7 8 4 5", stack.toString());
     }
 
+    @Test
+    public void testSubStackReverse(){
+        stack.insertArray(new int[]{1, 2, 3, 4, 5});
+        stack2 = new Stack();
+        stack2.insertArray(new int[]{3, 2});
+        assertTrue(stack.subStackReverse(stack2));
+        stack2 = new Stack();
+        stack2.insertArray(new int[]{1, 5});
+        assertFalse(stack.subStackReverse(stack2));
+    }
+
 }

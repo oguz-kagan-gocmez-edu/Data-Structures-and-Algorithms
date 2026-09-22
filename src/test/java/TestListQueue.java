@@ -219,4 +219,15 @@ public class TestListQueue {
         assertEquals(18, q4.secondMaximum());
     }
 
+    @Test
+    public void testSubQueueReverse(){
+        queue.insertArray(new int[]{1, 2, 3, 4, 5});
+        queue2 = new Queue();
+        queue2.insertArray(new int[]{4, 3, 2});
+        Assert.assertTrue(queue.subQueueReverse(queue2));
+        queue2 = new Queue();
+        queue2.insertArray(new int[]{1, 5});
+        Assert.assertFalse(queue.subQueueReverse(queue2));
+    }
+
 }

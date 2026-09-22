@@ -273,4 +273,36 @@ public class Stack {
         }
         tail.next = null;
     }
+
+    /**
+     * Write a method in the linked list based {\bf Stack} class which returns true if the reverse of the stack
+     * {\bf sub} occurs as a consecutive sequence anywhere in the current stack. Build the reverse of {\bf sub} in a
+     * new stack of new nodes, then search for it by parallel indexing, restarting from every node. Do not modify the
+     * current stack or {\bf sub}.
+     */
+    public boolean subStackReverse(Stack sub){
+        Stack reverse = new Stack();
+        Node current = sub.top;
+        while (current != null) {
+            Node newNode = new Node(current.data);
+            newNode.next = reverse.top;
+            reverse.top = newNode;
+            current = current.next;
+        }
+        Node start = this.top;
+        while (start != null) {
+            Node p1 = start;
+            Node p2 = reverse.top;
+            while (p1 != null && p2 != null && p1.data == p2.data) {
+                p1 = p1.next;
+                p2 = p2.next;
+            }
+            if (p2 == null) {
+                return true;
+            }
+            start = start.next;
+        }
+        return false;
+    }
+
 }

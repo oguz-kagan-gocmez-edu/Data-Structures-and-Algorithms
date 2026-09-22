@@ -272,4 +272,39 @@ public class DoublyLinkedList extends LinkedList{
         }
         return increaseFirst && decreaseThen && !increaseAgain;
     }
+
+    /**
+     * Write the static method in {\bf DoublyLinkedList} class to find the intersection of the elements in two sorted
+     * doubly linked lists and return a new doubly linked list. A value which is repeated $k$ times in one list and $m$
+     * times in the other should appear $\min(k, m)$ times in the result. Do not modify the lists l1 and l2. Your
+     * method should run in ${\cal O}(N)$ time. Nodes in the resulting list should be new.
+     */
+    public static DoublyLinkedList intersection(DoublyLinkedList l1, DoublyLinkedList l2) {
+        DoublyLinkedList result = new DoublyLinkedList();
+        DoublyNode p = (DoublyNode) l1.getHead();
+        DoublyNode q = (DoublyNode) l2.getHead();
+        while (p != null && q != null) {
+            int x = p.getData();
+            int y = q.getData();
+            if (x == y) {
+                DoublyNode newNode = new DoublyNode(x);
+                if (result.head == null) {
+                    result.head = newNode;
+                    result.tail = newNode;
+                } else {
+                    result.tail.setNext(newNode);
+                    newNode.setPrevious((DoublyNode) result.tail);
+                    result.tail = newNode;
+                }
+                p = (DoublyNode) p.getNext();
+                q = (DoublyNode) q.getNext();
+            } else if (x < y) {
+                p = (DoublyNode) p.getNext();
+            } else {
+                q = (DoublyNode) q.getNext();
+            }
+        }
+        return result;
+    }
+
 }

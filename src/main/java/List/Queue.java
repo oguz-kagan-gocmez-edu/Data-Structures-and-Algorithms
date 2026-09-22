@@ -300,4 +300,42 @@ public class Queue {
         }
         return secondMax;
     }
+
+    /**
+     * Write a method in the linked list based {\bf Queue} class which returns true if the reverse of the queue
+     * {\bf sub} occurs as a consecutive sequence anywhere in the current queue. Find the length of {\bf sub} first,
+     * then compare the current queue against {\bf sub} read backwards, restarting the comparison from every node. Do
+     * not modify the current queue or {\bf sub}.
+     */
+    // WARNING! Use of external data structures other than stack is forbidden!
+    public boolean subQueueReverse(Queue sub){
+        int subLength = 0;
+        Node temp = sub.first;
+        while (temp != null) {
+            subLength++;
+            temp = temp.next;
+        }
+        Node start = this.first;
+        while (start != null) {
+            Node originalNode = start;
+            boolean matches = true;
+            for (int i = subLength - 1; i >= 0; i--) {
+                Node subNode = sub.first;
+                for (int j = 0; j < i; j++) {
+                    subNode = subNode.next;
+                }
+                if (originalNode == null || originalNode.data != subNode.data) {
+                    matches = false;
+                    break;
+                }
+                originalNode = originalNode.next;
+            }
+            if (matches) {
+                return true;
+            }
+            start = start.next;
+        }
+        return false;
+    }
+
 }

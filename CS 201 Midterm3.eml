@@ -1,0 +1,514 @@
+Delivered-To: burak.aydogdu.45513@ozu.edu.tr
+Received: by 2002:a05:6214:ac4:b0:90a:5701:7f04 with SMTP id g4csp497435qvi;
+        Fri, 14 Aug 2026 22:23:15 -0700 (PDT)
+X-Received: by 2002:a05:600c:4fcb:b0:499:5a50:b022 with SMTP id 5b1f17b1804b1-49987928d0cmr167022285e9.3.1786771394781;
+        Fri, 14 Aug 2026 22:23:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786771394; cv=none;
+        d=google.com; s=arc-20260327;
+        b=P+JDz9C7nMperavHkmc4BhhITKhvWWnOcwG3FJtZ/IFPUt0Bxt6zoH+venTQgfuujr
+         u/b35w9Z6Tk+IntRNfjHDcHIbPfKkXucZ+0LUtuc4ABS+s+debhBqhdtnWOTKNqmxd39
+         2YbiQ18bnG8PyUzVJEBza2WRnGjlm6mA6+CX5U4nTO5tyapa6/I33dpDV49/96HVOrCu
+         sOG0//QIhD4Uvj/ynuWSg2nHbZPJYGVXHPl4faimEthpSLuyyBaP91opxRo8XlpWUgvV
+         V3Zxcfl+MQf9VMWUa2DOQ0b9Q/jZGu/7GrOc9BZhVuP+1JwLWE2aeNoHeaca0U9sYEAY
+         8iWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature;
+        bh=shtceMDXf5RlErp+lm5Pi1BF+2vB/Rs7g71iqJV/31A=;
+        fh=xCF1B8F1XKEaurasbD1gKlHf9iqdfxvKL9q2AbOJCAk=;
+        b=MC+ET8hGgkz51ba/k5K6nwiZWsII+A7OR8m6xYrynQpte02RGURxN6o8lvrJ5pOu6I
+         ZGMfSNMwFjTQ2M7HyT2aP+6diihnswVRKL16fADLSlEH8hLGXtFpuBkMS0TGLPNZaGKd
+         RC/NGM8mvBm5z1bza0tsH2AQ2B9lMUHtL8EGC+9A0IndkF00ib2SM350vX6KKzLF6o9H
+         /dueS9FWZKAMDEdmoWAUDLsJIh63hEQa/1CnlAHcTgYl5V1Es7iUCgjLkObvHSqVI4AZ
+         FSTt+0atBp3eMUV6rI+7C6u/8goAU/wGl4Zn9JRnvp2ktXeBairSSTA89i0TkrkUVaeO
+         4znA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=Pvo1x0DC;
+       spf=pass (google.com: domain of assessmentcode@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=assessmentcode@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@ozu.edu.tr
+Return-Path: <assessmentcode@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 5b1f17b1804b1-4998b998726sor2230715e9.17.2026.08.14.22.23.14
+        for <burak.aydogdu.45513@ozu.edu.tr>
+        (Google Transport Security);
+        Fri, 14 Aug 2026 22:23:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of assessmentcode@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=Pvo1x0DC;
+       spf=pass (google.com: domain of assessmentcode@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=assessmentcode@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@ozu.edu.tr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786771394; x=1787376194; darn=ozu.edu.tr;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :message-id:to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=shtceMDXf5RlErp+lm5Pi1BF+2vB/Rs7g71iqJV/31A=;
+        b=Pvo1x0DCY+DGuLSwYzov/VwJSDmZMxarliARhot3jMowsLTdu1jEpnIw/pqc3D73Xv
+         neFKypMnt6TpTHZLoDwb5Kukz5ToRWVaNtYo8dg1tOGvfYyhY5aC8oZjKhWmJSyl5tGY
+         NjoxVfLFUGUdQR+0ThQmvSfMrOuxDNAHJX10EW/Gc9V4CAl2lnOvMkXnQqzrB3ZWhwqe
+         TijeIXVLYDyISCd1wFtUZAvNtxK4UwlS+Wk6VDQB9tXonirJpAVB/S1ear+QS1jOthk7
+         ui+mgwWAL0rJHHS/8dyvp+fn0j6RwgqtvznyAp0f0c9hCGe4pFETQlTjgnpMRrLmA7Xv
+         T26Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786771394; x=1787376194;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :message-id:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=shtceMDXf5RlErp+lm5Pi1BF+2vB/Rs7g71iqJV/31A=;
+        b=AAxPDfT0oGb79KJiioqOjfs0ITdWWf8V6GbRDRr/+3wTRMq4T81f8xxUREE0z8k49O
+         Adh5o4d3TTENlGADGVCqPpBuocxo04TdKyQk+sdZ0Tr1/OHHMzu5dC7YSRh9OjC8BAeJ
+         O35dR5jVEv3y0CK3dp+8CKN4xfFyO6OD12gAsFXQIsrvncwq4pxLfdFotZVBpJwx59JX
+         ss2eZG+oydOH0KPjMbDmwCEJDd9eYH+PhZlSvn9dZhRCyhv1Fvb2zX1jLe4r/w2w+s25
+         U+qwfWf/KfQHXdKnN5dHROFe8Q9JHHrLrXGzoHJ66FVPFLEBT4t2McQrBe4mTe9PZuT6
+         JpuA==
+X-Gm-Message-State: AOJu0YzhQMR2NU7fTQ+0+DxgCn3ImKj6t+XLYzmnWoYaPcsC5mhYEGcV
+	MyatG7AUIuCeJdJCX4YriRO5C4AE41aLFtyTN2tRxpyvJ3ZjuuFhvv4Gz8H7Ci4X
+X-Gm-Gg: AR+sD13dbq607w6ma0o1IdFaFBGUoTfD60P3WywLC9LPYKxY/1spYg8mgn6BivShynu
+	Wt78G60dVoEUNomW90hdu2L2MMrCZRnCPX3O4/W4Q//c1gw3y3vSde/zYxOpFPMDG3xeeZtc4ep
+	vxNg22sM8QhnJXpWYssTSK8HDVVEjldeph4qsaox1RoLDOeuaW/kyOVIozm/TA134Ll5UDGQjQU
+	1ChJftmnaMFK8BA/46vbVznGz52r33q5jNOR7MzCeRZrnJPhReO9RDUpNz+OqeQe6YP3n+28UYq
+	ByWmutXJXHPX7Q2s4vm0pMm0nSOfPIV5B3SHPG2yjtmqersByc4p6QF5iYrfn+iiBUlG2hLbaT0
+	xjBHxUC3j0lWfiZ+bQ+HdXziOUvMHBZu+cjLtlAUt6BubzCu0H1iwZQ0EHdf4GmZeQKbwB/4b8J
+	WB9SlgInp+b5WcIWx33nka0AdZ6ghRKhcgAmVKbbEAjp23AMM+Z0TaCQmMcfT4pC0q34Aybtzwb
+	FGJHg==
+X-Received: by 2002:a7b:c3c4:0:b0:495:5890:8f6c with SMTP id 5b1f17b1804b1-4998793bdf2mr116216875e9.7.1786771394014;
+        Fri, 14 Aug 2026 22:23:14 -0700 (PDT)
+Return-Path: <assessmentcode@gmail.com>
+Received: from localhost ([149.0.152.104])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499899b5ad0sm86006315e9.4.2026.08.14.22.23.13
+        for <burak.aydogdu.45513@ozu.edu.tr>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 14 Aug 2026 22:23:13 -0700 (PDT)
+Date: Sat, 15 Aug 2026 08:23:11 +0300 (GMT+03:00)
+From: assessmentcode@gmail.com
+To: burak.aydogdu.45513@ozu.edu.tr
+Message-ID: <1369547491.7.1786771391939@localhost>
+Subject: CS 201 Midterm3
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+S045513:
+
+***STUDENT CODES***
+
+S045513.txt
+Q1
+public int howManyPairGrandParentEqual() {
+/** ASSESSMENT
+ * @grade 1
+ * @feedback Counter variable is correctly initialized.
+ */
+        int total = 0;
+/** ASSESSMENT
+ * @grade 18 
+ * @feedback Nested loop logic is correct for pair iteration (j = i +1), two-tier grandparent calculation is okay, and counter update is correct. Equality check correct (index check). Root base case grandparent rule can be checked explicitly.
+ */
+        if (count==1) return total;
+        for (int i =0;i<count;i++) {
+            for (int j=1+i;j<count;j++) {
+                if ((i-1)/2 >=0 && (j-1)/2>=0 &&(((i-1)/2)-1)/2==(((j-1)/2)-1)/2) {
+                    total++;
+                }
+            }
+        }
+
+/** ASSESSMENT
+ * @grade 1
+ * @feedback Correctly returns the total count variable.
+ */
+        return total;
+    }
+
+
+Q2
+public int smallest() {
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        int smallestIndex = 0;
+        //int totalComparisons = 0;
+        boolean[][] compared = new boolean[count][count];
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        for (int i = 0;i<count;i++) {
+            boolean hasTorun = false;
+            for (int j =1;j<=d;j++) {
+                int childIndex = d*i+j;
+                for (int k=1;k<=d*2;k++) {
+                    int torunIndex = d*childIndex+k;
+                    if (torunIndex<count && array[torunIndex]!=null) { //There is torun, dont look at cocuk
+                        if (compared[torunIndex][smallestIndex]==false && array[torunIndex].getData()<array[smallestIndex].getData()) {
+                            smallestIndex=torunIndex;
+
+                        }
+                        compared[smallestIndex][torunIndex]=true;
+                        compared[torunIndex][smallestIndex]=true;
+                        //if (compared[torunIndex][smallestIndex]==false) {
+                        //    totalComparisons++;
+                        //}
+                        } else if(childIndex<count && array[childIndex]!=null) { //No torun, look at cocuk
+
+                        if (compared[childIndex][smallestIndex]==false && array[childIndex].getData()<array[smallestIndex].getData()) {
+                            smallestIndex=childIndex;
+                        }
+                        //if (compared[childIndex][smallestIndex]==false) {
+                            //totalComparisons++;
+                        //}
+                        compared[childIndex][smallestIndex]=true;
+                        compared[smallestIndex][childIndex]=true;
+
+                    }
+                }
+            }
+        }
+
+        //System.out.println("total comp : ");
+        //System.out.print(totalComparisons);
+        //System.out.println(" ");
+
+        //System.out.println("not more than : ");
+        //System.out.print(N*(1-1/d));
+        //System.out.println(" ");
+
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        return array[smallestIndex].getData();
+    }
+
+
+Q5
+public int evenEdgeGraph() {
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        int evenCount =0;
+
+/** ASSESSMENT
+ * @grade 15
+ * @feedback 
+ */
+        //int[] degrees = new int[vertexCount];
+        for (int i=0;i<vertexCount;i++) {
+            for (int j=0;j<vertexCount;j++) {
+                                // either of disctinct values
+                if (edges[i][j]==1 && (i%2==0 || j%2==0)) { //even edge check?
+                    // degrees[i] +=1;
+                    // degrees[j] +=1;
+                    evenCount++;
+
+                }
+            }
+        }
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        return evenCount;
+
+        //for (int d : degrees) {
+        //    if (d%2==0 && d>=2) {
+        //       evenCount++;
+        //    }
+        //}
+
+    }
+
+
+Q4
+// WARNING! Use of external data structures other than stack is forbidden!
+// WARNING! Modifying arrays or collection values is not allowed!
+public boolean isTwoColorable() {
+/** ASSESSMENT
+ * @grade 5
+ * @feedback 
+ */
+        boolean[] visited = new boolean[vertexCount];
+        if (vertexCount<=2) return true;
+        int[] colors = new int[vertexCount];
+        for (int i=0;i<vertexCount;i++) {
+            colors[i]=3; // 3 is not colored yet 2 is color1 and 1 is color2
+            visited[i]=false;
+        }
+        Edge edge;
+        int fromNode, toNode;
+        Queue queue = new Queue();
+        queue.enqueue(new Node(edges[0].getHead().getFrom()));
+/** ASSESSMENT
+ * @grade 14
+ * @feedback 
+ */
+        while (!queue.isEmpty()){
+            fromNode = queue.dequeue().getData();
+            edge = edges[fromNode].getHead();
+            while (edge != null) {
+                toNode = edge.getTo();
+                if (!visited[toNode]){
+                    visited[toNode] = true;
+                    queue.enqueue(new Node(toNode));
+                }
+                if (colors[toNode]==3) {colors[toNode] = 3-colors[edge.getFrom()];}
+                if (colors[toNode]==colors[edge.getFrom()] || colors[edge.getFrom()]==colors[edge.getTo()]) return false;
+                edge = edge.getNext();
+            }
+        }
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        return true;
+    }
+
+
+Q3
+public int sameHeightSetsDifferentRoot() {
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        int total = 0;
+/** ASSESSMENT
+ * @grade 18
+ * @feedback 
+ */
+        for (int i=0;i<count;i++) {
+            for (int j=i+1;j<count;j++) {
+                //findset and height for i
+                int parent1 = sets[i].getParent();
+                int heightofi=0;
+                int tmp =i;
+                while (parent1 != i){
+                    i = parent1;
+                    parent1 = sets[i].getParent();
+                    heightofi++;
+                }
+                int setofi = parent1;
+                i=tmp;
+                //findset and height for j
+                int parent2 = sets[j].getParent();
+                int heightofj=0;
+                tmp=j;
+                while (parent2 != j){
+                    j = parent2;
+                    parent2 = sets[j].getParent();
+                    heightofj++;
+                }
+                j=tmp;
+                int setofj = parent2;
+                if (setofj!=setofi && heightofj==heightofi) {
+                    total++;
+                }
+
+
+            }
+        }
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        return total;
+    }
+
+
+
+
+***REFERENCE CODES***
+
+RefCode.java
+Q1
+public int howManyPairGrandParentEqual() {
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        int count = 0;
+
+/** ASSESSMENT
+ * @grade 18
+ * @feedback 
+ */
+        for (int i = 0; i < this.count; i++) {
+            int parentI = (i == 0) ? 0 : (i - 1) / 2;
+            int grandParentI = (parentI == 0) ? 0 : (parentI - 1) / 2;
+
+            for (int j = i + 1; j < this.count; j++) {
+                int parentJ = (j == 0) ? 0 : (j - 1) / 2;
+                int grandParentJ = (parentJ == 0) ? 0 : (parentJ - 1) / 2;
+
+                if (grandParentI == grandParentJ) {
+                    count++;
+                }
+            }
+        }
+
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        return count;
+}
+
+
+
+Q2
+public int smallest(){
+/** ASSESSMENT
+ * @grade 4
+ * @feedback 
+ */
+    int firstLeaf = this.count / this.d + 1;
+    int minIndex = firstLeaf;
+
+/** ASSESSMENT
+ * @grade 15
+ * @feedback 
+ */
+    for (int i = firstLeaf + 1; i < this.count; i++) {
+	if (array[i].getData() < array[minIndex].getData()) {
+	    minIndex = i;
+	}
+    }
+
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+    return array[minIndex].getData();
+}
+
+
+
+Q5
+public int evenEdgeGraph() {
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        int count = 0;
+
+/** ASSESSMENT
+ * @grade 18
+ * @feedback 
+ */
+        for (int i = 0; i < this.vertexCount; i++) {
+            for (int j = 0; j < this.vertexCount; j++) {
+                if (i != j && edges[i][j] != 0 && (i % 2 == 0 || j % 2 == 0)) {
+                    count++;
+                }
+            }
+        }
+
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        return count;
+}
+
+
+
+Q4
+// WARNING! Modifying arrays or collection values is not allowed!
+public boolean isTwoColorable() {
+/** ASSESSMENT
+ * @grade 5
+ * @feedback 
+ */
+        int n = edges.length;
+        int[] color = new int[n];
+        for (int i=0; i < n; i++)
+            color[i] = -1;
+
+        int[] queue = new int[n];
+        int head = 0, tail = 0;
+
+        color[0] = 0;
+        queue[tail++] = 0;
+
+/** ASSESSMENT
+ * @grade 14
+ * @feedback 
+ */
+        while (head < tail) {
+            int v = queue[head++];
+
+            for (Edge p = edges[v].getHead(); p != null; p = p.getNext()) {
+                int w = p.getTo();
+
+                if (color[w] == -1) {
+                    color[w] = 1 - color[v];
+                    queue[tail++] = w;
+                } else if (color[w] == color[v]) {
+                    return false;
+                }
+            }
+        }
+
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        return true;
+}
+
+
+
+Q3
+public int sameHeightSetsDifferentRoot() {
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        int count = 0;
+
+/** ASSESSMENT
+ * @grade 18
+ * @feedback 
+ */
+        for (int i = 0; i < sets.length - 1; i++) {
+            for (int j = i + 1; j < sets.length; j++) {
+                int currentI = i;
+                int currentJ = j;
+                int heightI = 1;
+                int heightJ = 1;
+
+                int parent = sets[currentI].getParent();
+                while (parent != currentI){
+                    currentI = parent;
+                    parent = sets[currentI].getParent();
+                    heightI++;
+                }
+
+                parent = sets[currentJ].getParent();
+                while (parent != currentJ){
+                    currentJ = parent;
+                    parent = sets[currentJ].getParent();
+                    heightJ++;
+                }
+
+                if (currentI != currentJ && heightI == heightJ) {
+                    count++;
+                }
+            }
+        }
+
+/** ASSESSMENT
+ * @grade 1
+ * @feedback 
+ */
+        return count;
+}
+
+
+
+
+

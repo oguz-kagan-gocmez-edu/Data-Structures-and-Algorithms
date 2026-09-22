@@ -239,4 +239,73 @@ public class Tree {
         return odd;
     }
 
+    /**
+     * Write a nonrecursive method in {\bf Tree} class using Stack which returns the sum of the cubic powers of all keys
+     * in a binary search tree. Push the root first, then repeatedly pop a node, add the cube of its key to the sum and
+     * push its existing children, until the stack becomes empty.
+     */
+    public int cubicSumOfTree(){
+        int sum = 0;
+        Stack stack = new Stack(100);
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode current = stack.pop();
+            int key = current.getData();
+            sum += key * key * key;
+            if (current.getLeft() != null) {
+                stack.push(current.getLeft());
+            }
+            if (current.getRight() != null) {
+                stack.push(current.getRight());
+            }
+        }
+        return sum;
+    }
+
+    /**
+     * T1 and T2 are two binary trees. Write the recursive method in {\bf Tree} class to determine whether T2 is a
+     * subtree of T1, that is, whether some node of T1 roots a tree which is identical to T2. An empty T2 is a subtree of
+     * every tree.
+     */
+    public boolean isSubtree(TreeNode T1, TreeNode T2){
+        if (T2 == null) return true;
+        if (T1 == null) return false;
+        if (isIdentical(T1, T2)) return true;
+        return isSubtree(T1.left, T2) || isSubtree(T1.right, T2);
+    }
+
+    /**
+     * Write a nonrecursive method in {\bf Tree} class which returns whether the binary tree is two colorable, that is,
+     * whether every node can be given one of two colors so that no node has the same color as one of its children.
+     * Traverse the tree in breadth first order using an external array based queue, and carry the color of each node in
+     * a parallel array where both children get the opposite color of their parent.
+     */
+    // WARNING! Modifying arrays or collection values is not allowed!
+    public boolean isTwoColorableTree(){
+        TreeNode[] queue = new TreeNode[100];
+        int[] colors = new int[100];
+        int front = 0;
+        int rear = 0;
+        queue[rear] = root;
+        colors[rear] = 0;
+        rear++;
+        while (front < rear) {
+            TreeNode current = queue[front];
+            int currentColor = colors[front];
+            front++;
+            int childColor = 1 - currentColor;
+            if (current.getLeft() != null) {
+                queue[rear] = current.getLeft();
+                colors[rear] = childColor;
+                rear++;
+            }
+            if (current.getRight() != null) {
+                queue[rear] = current.getRight();
+                colors[rear] = childColor;
+                rear++;
+            }
+        }
+        return true;
+    }
+
 }

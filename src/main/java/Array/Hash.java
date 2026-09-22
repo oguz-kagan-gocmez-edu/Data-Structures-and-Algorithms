@@ -247,4 +247,27 @@ public class Hash {
         return false;
     }
 
+    /**
+     * Write the static method in {\bf Hash} class which returns true if there are two different triplets of the array
+     * whose multiplications are equal. Insert the product of every triplet into a hash table and report a match as soon
+     * as a product is inserted twice. Your method should run in ${\cal O}(N^3)$ time.
+     */
+    public static boolean equalTripletMultiplication(int[] array){
+        int n = array.length;
+        int tripletCount = n * (n - 1) * (n - 2) / 6;
+        Hash products = new Hash(2 * tripletCount + 1);
+        for (int i = 0; i < n - 2; i++) {
+            for (int j = i + 1; j < n - 1; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    int product = array[i] * array[j] * array[k];
+                    if (products.search(product) != null) {
+                        return true;
+                    }
+                    products.insert(product);
+                }
+            }
+        }
+        return false;
+    }
+
 }

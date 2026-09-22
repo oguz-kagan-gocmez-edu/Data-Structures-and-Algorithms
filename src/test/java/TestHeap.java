@@ -237,4 +237,24 @@ public class TestHeap {
         
     }
 
+    @Test
+    public void testHowManyPairGrandParentEqual() {
+        MaxHeap heap = new MaxHeap(20);
+        heap.insertArray(new int[]{9, 8, 7, 6, 5, 4, 3});
+        Assert.assertEquals(21, heap.howManyPairGrandParentEqual());
+        heap = new MaxHeap(20);
+        heap.insertArray(new int[]{9, 8, 7});
+        Assert.assertEquals(3, heap.howManyPairGrandParentEqual());
+    }
+
+    @Test
+    public void testSmallest() {
+        MaxDHeap heap = new MaxDHeap(20, 3);
+        heap.insertArray(new int[]{9, 8, 7, 6, 5, 4, 2, 3});
+        Assert.assertEquals(2, heap.smallest());
+        heap = new MaxDHeap(20, 2);
+        heap.insertArray(new int[]{9, 8, 7, 6, 5, 4, 1});
+        Assert.assertEquals(1, heap.smallest());
+    }
+
 }

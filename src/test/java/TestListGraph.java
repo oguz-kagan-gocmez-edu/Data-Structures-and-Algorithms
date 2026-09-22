@@ -350,4 +350,14 @@ public class TestListGraph {
         assertEquals(2, graph2.oddEdgeGraph());
     }
 
+    @Test
+    public void testIsTwoColorable(){
+        Graph graph = new Graph(4,
+                new int[][]{{0, 1}, {1, 0}, {1, 2}, {2, 1}, {2, 3}, {3, 2}, {3, 0}, {0, 3}});
+        assertTrue(graph.isTwoColorable());
+        graph = new Graph(3,
+                new int[][]{{0, 1}, {1, 0}, {1, 2}, {2, 1}, {2, 0}, {0, 2}});
+        assertFalse(graph.isTwoColorable());
+    }
+
 }

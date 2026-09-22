@@ -319,4 +319,24 @@ public class Hash {
         
         
     }
+
+    /**
+     * Write the method in the linked list based {\bf Hash} class which returns true if the hash table maps at most four
+     * values to every address, that is, no chain of the table contains more than 4 nodes.
+     */
+    public boolean maxMapFour(){
+        for (int i = 0; i < table.length; i++) {
+            Node current = table[i].getHead();
+            int count = 0;
+            while (current != null) {
+                count++;
+                if (count > 4) {
+                    return false;
+                }
+                current = current.next;
+            }
+        }
+        return true;
+    }
+
 }

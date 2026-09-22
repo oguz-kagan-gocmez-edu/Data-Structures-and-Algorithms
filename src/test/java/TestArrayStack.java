@@ -153,4 +153,15 @@ public class TestArrayStack {
         assertEquals("5 3 7 1 10", stack.toString());
     }
 
+    @Test
+    public void testInsertAfterSmallest(){
+        stack.insertArray(new int[]{5, 1, 9, 3});
+        stack.insertAfterSmallest(7);
+        assertEquals("5 1 7 9 3", stack.toString());
+        stack = new Stack(100);
+        stack.insertArray(new int[]{2, 4, 6});
+        stack.insertAfterSmallest(3);
+        assertEquals("2 3 4 6", stack.toString());
+    }
+
 }

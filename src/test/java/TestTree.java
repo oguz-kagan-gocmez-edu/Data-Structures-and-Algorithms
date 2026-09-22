@@ -460,4 +460,33 @@ public class TestTree {
         assertEquals(14, tree2.getRoot().quadraticSummation());
     }
 
+    @Test
+    public void testCubicSumOfTree() {
+        tree.insertArray(new int[]{5, 3, 8, 1, 4, 7, 9});
+        assertEquals(1801, tree.cubicSumOfTree());
+        tree = new Tree();
+        tree.insertArray(new int[]{2, 1, 3});
+        assertEquals(36, tree.cubicSumOfTree());
+    }
+
+    @Test
+    public void testIsSubtree() {
+        tree.insertArray(new int[]{5, 3, 8, 1, 4, 7, 9});
+        tree1 = new Tree();
+        tree1.insertArray(new int[]{3, 1, 4});
+        assertTrue(tree.isSubtree(tree.getRoot(), tree1.getRoot()));
+        tree1 = new Tree();
+        tree1.insertArray(new int[]{3, 1});
+        assertFalse(tree.isSubtree(tree.getRoot(), tree1.getRoot()));
+    }
+
+    @Test
+    public void testIsTwoColorableTree() {
+        tree.insertArray(new int[]{5, 3, 8, 1, 4, 7, 9});
+        assertTrue(tree.isTwoColorableTree());
+        tree = new Tree();
+        tree.insertArray(new int[]{1});
+        assertTrue(tree.isTwoColorableTree());
+    }
+
 }

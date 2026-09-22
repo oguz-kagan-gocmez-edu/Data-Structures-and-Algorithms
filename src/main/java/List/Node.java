@@ -1,7 +1,7 @@
 package List;
 
 public class Node {
-    protected int data;
+    public int data;
     protected Node next;
 
     public Node(int data){

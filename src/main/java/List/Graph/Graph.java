@@ -546,4 +546,36 @@ public class Graph extends AbstractGraph {
         }
         return odds;
     }
+
+    /**
+     * Write the method in linked list implementation of Graph which returns whether the graph is two colorable, that is,
+     * whether every vertex can be given one of two colors so that no edge connects two vertices of the same color.
+     * Color every newly discovered vertex with the opposite color of the vertex it was discovered from during a breadth
+     * first search starting from vertex 0, and report failure as soon as an edge joins two vertices of the same color.
+     */
+    // WARNING! Modifying arrays or collection values is not allowed!
+    public boolean isTwoColorable(){
+        int n = edges.length;
+        int[] color = new int[n];
+        for (int i = 0; i < n; i++)
+            color[i] = -1;
+        int[] queue = new int[n];
+        int head = 0, tail = 0;
+        color[0] = 0;
+        queue[tail++] = 0;
+        while (head < tail) {
+            int v = queue[head++];
+            for (Edge p = edges[v].getHead(); p != null; p = p.getNext()) {
+                int w = p.getTo();
+                if (color[w] == -1) {
+                    color[w] = 1 - color[v];
+                    queue[tail++] = w;
+                } else if (color[w] == color[v]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }

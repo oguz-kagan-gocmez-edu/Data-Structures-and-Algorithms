@@ -375,4 +375,39 @@ public class DisjointSet {
         }
         return equal;
     }
+
+    /**
+     Write the method in {\bf DisjointSet} class which returns the number of pairs of sets that have the same height but
+     different roots. The height of an element is calculated by the number of nodes visited when we traverse the tree
+     starting from that set and continue through the parent links until the top. Every unordered pair should be counted
+     once. Do not use any class or external methods.
+     */
+    public int sameHeightSetsDifferentRoot(){
+        int count = 0;
+        for (int i = 0; i < sets.length - 1; i++) {
+            for (int j = i + 1; j < sets.length; j++) {
+                int currentI = i;
+                int currentJ = j;
+                int heightI = 1;
+                int heightJ = 1;
+                int parent = sets[currentI].getParent();
+                while (parent != currentI){
+                    currentI = parent;
+                    parent = sets[currentI].getParent();
+                    heightI++;
+                }
+                parent = sets[currentJ].getParent();
+                while (parent != currentJ){
+                    currentJ = parent;
+                    parent = sets[currentJ].getParent();
+                    heightJ++;
+                }
+                if (currentI != currentJ && heightI == heightJ) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
 }

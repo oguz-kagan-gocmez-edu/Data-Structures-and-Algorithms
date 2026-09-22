@@ -69,4 +69,26 @@ public abstract class Heap {
         }
         return s.trim();
     }
+
+    /**
+     * Write the method in {\bf Heap} class which returns the number of pairs of elements that have the same
+     * grandparent. The parent of the element at index $i$ is at index $(i-1)/2$, and the parent of the root is the root
+     * itself. Every unordered pair should be counted once.
+     */
+    public int howManyPairGrandParentEqual(){
+        int count = 0;
+        for (int i = 0; i < this.count; i++) {
+            int parentI = (i == 0) ? 0 : (i - 1) / 2;
+            int grandParentI = (parentI == 0) ? 0 : (parentI - 1) / 2;
+            for (int j = i + 1; j < this.count; j++) {
+                int parentJ = (j == 0) ? 0 : (j - 1) / 2;
+                int grandParentJ = (parentJ == 0) ? 0 : (parentJ - 1) / 2;
+                if (grandParentI == grandParentJ) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
 }

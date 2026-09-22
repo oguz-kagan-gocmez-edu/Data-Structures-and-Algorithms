@@ -236,4 +236,23 @@ public class Stack {
         top -= shift;
     }
 
+    /**
+     * Write a method in the array based {\bf Stack} class which inserts the new value $s$ right above the smallest
+     * element of the stack, shifting every element above it one position up.
+     */
+    // WARNING! Modifying arrays or collection values is not allowed!
+    public void insertAfterSmallest(int s){
+        int minIndex = 0;
+        for (int i = 1; i <= this.top; i++) {
+            if (array[i].getData() < array[minIndex].getData()) {
+                minIndex = i;
+            }
+        }
+        this.top++;
+        for (int i = this.top; i > minIndex + 1; i--) {
+            array[i] = new Element(array[i - 1].getData());
+        }
+        array[minIndex + 1] = new Element(s);
+    }
+
 }

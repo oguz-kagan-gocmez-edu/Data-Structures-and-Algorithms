@@ -1,4 +1,5 @@
 import Array.Sort.*;
+import List.DoublyLinkedList;
 import List.LinkedList;
 import org.junit.Test;
 import java.util.Arrays;
@@ -353,6 +354,30 @@ public class TestSort {
 
         int[] B = new int[]{8, 7, 6, 5, 4, 3, 2, 1};
         assertArrayEquals(new int[]{1, 8, 2, 7, 3, 6, 4, 5}, quickSort.minMaxRepeat(B));
+    }
+
+    @Test
+    public void testBubbleSortDouble(){
+        BubbleSort bubble = new BubbleSort();
+        DoublyLinkedList list = new DoublyLinkedList();
+        list.insertArray(new int[]{5, 1, 4, 2, 8, 0});
+        bubble.bubbleSortDouble(list);
+        assertEquals("0 1 2 4 5 8", list.toString());
+        list = new DoublyLinkedList();
+        list.insertArray(new int[]{1, 2, 3});
+        bubble.bubbleSortDouble(list);
+        assertEquals("1 2 3", list.toString());
+    }
+
+    @Test
+    public void testQuickQuadruple(){
+        QuickSort quick = new QuickSort();
+        int[] A = {3, 2, 1, 0};
+        quick.quickQuadruple(A);
+        assertArrayEquals(new int[]{0, 1, 2, 3}, A);
+        int[] B = {7, 6, 5, 4};
+        quick.quickQuadruple(B);
+        assertArrayEquals(new int[]{4, 5, 6, 7}, B);
     }
 
 }

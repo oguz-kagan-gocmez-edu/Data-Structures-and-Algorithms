@@ -1,5 +1,8 @@
 package Array.Sort;
 
+import List.DoublyLinkedList;
+import List.DoublyNode;
+
 public class BubbleSort implements Sort{
 
     @Override
@@ -25,6 +28,30 @@ public class BubbleSort implements Sort{
      * in ${\cal O}(N^2)$ time.
      */
     public void sort2(int[] A, int[] B, int[] C){
+    }
+
+    /**
+     * Modify the original bubble sort such that it sorts the doubly linked list A instead of an array. The nodes should
+     * not be relinked, only the values they carry are exchanged. Since the last item of every pass is already in place,
+     * the following pass should stop before it. Your method should run in ${\cal O}(N^2)$ time.
+     */
+    public void bubbleSortDouble(DoublyLinkedList A){
+        boolean swapped;
+        DoublyNode last = null;
+        do {
+            swapped = false;
+            DoublyNode current = (DoublyNode) A.getHead();
+            while (current.getNext() != last) {
+                if (current.getData() > current.getNext().getData()) {
+                    int temp = current.data;
+                    current.data = current.getNext().data;
+                    current.getNext().data = temp;
+                    swapped = true;
+                }
+                current = (DoublyNode) current.getNext();
+            }
+            last = current;
+        } while (swapped);
     }
 
 }
